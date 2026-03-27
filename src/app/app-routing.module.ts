@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './shared/components/layout/layout.component';
 
 const routes: Routes = [
   {
@@ -8,6 +9,7 @@ const routes: Routes = [
       import('./features/login/login.module')
         .then(m => m.LoginModule)
   },
+  {path:'menu', component:LayoutComponent},
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' }
 ];
 

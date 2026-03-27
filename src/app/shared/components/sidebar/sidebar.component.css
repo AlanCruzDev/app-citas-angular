@@ -1,0 +1,76 @@
+.btn-danger{
+  width: 120px;
+  height: 30px;
+}
+
+.dropdaw_menu{
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown-enter {
+  animation: dropdownEnter 0.3s ease forwards;
+}
+
+.dropdown-leave {
+  animation: dropdownLeave 0.3s ease forwards;
+}
+
+
+.dropdaw_menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdaw_menu ul li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdaw_menu ul li:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar-menu .menu_item:hover{
+  background-color: #f0f0f0;
+}
+.sidebar-menu .menu_item{
+  padding: 5px;
+  cursor: pointer;
+}
+.dropdaw_menu ul li i {
+  margin-right: 7px;
+}
+
+.menu-items {
+  background-color: rgba(189, 189, 189, 0.5);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.expanded{
+  max-height: 650px;
+}
+
+.menu-item img {
+  width: 24px;
+  margin-right: 10px;
+}
+
+.menu_item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-left: 0px;
+}
+
+.menu-items li {
+  display: block;
+  padding-left: 10px;
+  font-size: 13px;
+  padding: 2px;
+  cursor: pointer;
+}

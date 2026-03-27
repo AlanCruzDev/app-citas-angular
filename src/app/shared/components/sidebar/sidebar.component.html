@@ -1,0 +1,40 @@
+<aside class="sidebar">
+
+  <div class="sidebar-profile" style="display: flex; flex-direction: column; justify-content: center;">
+    <div class="picture-wrapper">
+      <div class="user-picture">
+          <img src="" style="opacity: 0.2;">
+          <div class="overlay_sidebar"></div>
+      </div>
+    </div>
+
+    <div class="profile-details" style="justify-content: center; align-items: center; display: flex; flex-direction: column; padding: 10px;">
+      <p class="mb-0 text-uppercase name">SUCURSAL</p>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+      <p style="color: black;">USUARIO ADMINISTRADOR</p><i [@rotateDownUp]="dropdownVisible.toString()" style="margin-left: 10px;" class="fa fa-chevron-down" aria-hidden="true" (click)="toggleDropdown()"></i>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="dropdaw_menu" [ngClass]="{'dropdown-enter': dropdownVisible, 'dropdown-leave': !dropdownVisible}" style="margin-top: 10px;">
+    <ul>
+        <li><i class="fa fa-unlock-alt" style="color: #0277BD; font-size: 20px; margin-right: 7px"></i><span style="font-size: 13px">Cambiar Contraseña</span></li>
+    </ul>
+    <div style="align-items: center; text-align: center; padding-bottom: 15px;">
+      <button class="btn-danger">Cerrar Sesión</button>
+    </div>
+  </div>
+
+
+  <nav class="sidebar-menu" >
+    <ng-container *ngFor="let item of sidebarlogic.menuItems; let i=index;">
+      <div class="menu_item" (click)="cerrarMenu(i)">
+        <img [src]="item.icon"/><span style="margin-left: 5px;">{{item.title}}</span>
+      </div>
+      <ul class="menu-items" [ngClass]="{'expanded':item.expanded}">
+        <li *ngFor="let sub_item of item.submenu; let last = last"><a (click)="navegation(sub_item.url,sub_item)"><span>{{sub_item.name}}</span></a></li>
+      </ul>
+    </ng-container>
+  </nav>
+</aside>
