@@ -1,0 +1,48 @@
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+
+    <div class="mb-3 row">
+      <label for="number-phone" class="col-12 col-sm-2 col-form-label">Teléfono</label>
+      <div class="col-12 col-sm-10">
+        <input type="text" 
+               formControlName="numPhone" 
+               class="form-control" 
+               id="number-phone" 
+               maxlength="10"
+               placeholder="Ej: 5512345678"> 
+      </div>
+
+    </div>
+
+    <div class="mb-3 row">
+      <label for="contraseña" class="col-12 col-sm-2 col-form-label">Contraseña</label>
+      <div class="col-12 col-sm-10">
+        <input type="password" 
+               formControlName="password" 
+               class="form-control" 
+               id="contraseña" 
+               minlength="8"
+               placeholder="Tu contraseña">
+
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-sm-10 offset-sm-2 d-grid d-sm-block">
+        <button type="submit" 
+                class="btn btn-primary" 
+                [disabled]="loginForm.invalid">
+          Iniciar sesión
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <span>¿No tienes cuenta?</span> 
+      <a routerLink="/register" class="ms-1">Regístrate</a> 
+    </div>
+  </fieldset>
+</form>

@@ -1,12 +1,12 @@
 // auth-routing.module.ts (o login-routing.module.ts)
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/login.component';
+import { LoginPageComponent } from './pages/login-pages/login-page.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginPageComponent
   }
 ];
 

@@ -1,4 +1,4 @@
 export class LoginRequest{
-  email: string='';
+  numPhone: string='';
   password: string='';
 }
