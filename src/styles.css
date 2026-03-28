@@ -1,7 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-/* 1. Importación de Recursos Externos */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import url('./assets/lightning-admin.css');
+
 
 :root {
     --primary: #46608a; --primary-dim: #3a537d; --primary-fixed: #b3cdfe;

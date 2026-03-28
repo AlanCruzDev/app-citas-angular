@@ -21,7 +21,9 @@ export class LoginPageComponent {
   public setInfoLogin(e: LoginRequest) {
     this.numPhone = e.numPhone;
     this.password = e.password;
-    this.auth.login(this.numPhone, this.password).subscribe({
+    this.route.navigateByUrl('/index/home');
+
+    /*this.auth.login(this.numPhone, this.password).subscribe({
       next: (value) => {
         if (value.success == true) {
           this.guardarSession(value.data.id, value.data);
@@ -36,7 +38,7 @@ export class LoginPageComponent {
     });
 
     console.log('se recibio el numero:', this.numPhone);
-    console.log('se recibio la contraseña:', this.password);
+    console.log('se recibio la contraseña:', this.password);*/
   }
 
   public guardarSession(key: string, data: any) {
