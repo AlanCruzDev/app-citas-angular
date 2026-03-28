@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginRequest } from '../../models/LoginRequest';
+import { LoginRequest } from '../../models/LoginRequest'; //se importo el loginrequest 
 
 
 @Component({

@@ -1,5 +1,11 @@
-<h1 >Inicio de sesión</h1>
 
+<div class="bg-blobs">
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+</div>
 
-<app-login-form (loginSubmit)="setInfoLogin($event)"/>
+<main style="display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 2rem; z-index: 10; position: relative;">
+    
+    <app-login-form (loginSubmit)="setInfoLogin($event)"></app-login-form>
 
+</main>

@@ -1,0 +1,88 @@
+.login-card {
+    width: 100%; max-width: 448px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    padding: 2.5rem; border-radius: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(47, 50, 58, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-title { font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--on-surface); 
+    margin: 0; 
+    margin-bottom: 0.5rem; 
+ }
+ 
+
+.field-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+
+.input-wrapper { position: relative; }
+
+.input-wrapper .material-symbols-outlined {
+    position: absolute; left: 1rem; top: 50%;
+    transform: translateY(-50%); color: var(--outline); font-size: 1.125rem;
+}
+
+.input-field {
+    width: 100%; padding: 1rem 1rem 1rem 3rem;
+    background-color: var(--surface-container-high);
+    border: none; border-radius: 0.75rem;
+}
+
+.submit-btn {
+    width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dim) 100%);
+    color: white; padding: 1rem; border-radius: 0.75rem; border: none; cursor: pointer;
+    font-weight: 700; transition: transform 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) { transform: scale(1.02); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.login-card {
+    width: 100%; 
+    max-width: 448px; /* Controla el ancho máximo de la tarjeta blanca */
+    background: white; 
+    padding: 3rem; /* Espaciado interior */
+    border-radius: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(47, 50, 58, 0.1);
+    
+    /* Esto ayuda a centrar el texto interno si es necesario */
+    display: flex;
+    flex-direction: column;
+}
+
+.error-text {
+    color: #ef4444; /* Un rojo moderno y legible */
+    font-size: 0.75rem; /* El equivalente a 'small' */
+    margin-top: 0.25rem; /* El equivalente a 'mt-1' */
+    margin-left: 0.5rem; /* Para que quede alineado con el texto del input */
+    font-weight: 500;
+}
+
+.input-field {
+    background-color: #e6e8f1; /*El gris de tu diseño */
+    border: none;
+    padding: 1rem 1rem 1rem 3rem;
+    border-radius: 0.75rem;
+    width: 100%;
+}
+
+.mobile-header {
+  text-align: center; /* 1. Fuerza el centrado horizontal de todo lo que esté adentro */
+  margin-bottom: 2rem; /* 2. Le da un "respiro" visual antes de que empiece el formulario */
+}
+
+.mobile-title {
+  color: var(--primary); /* 3. Llama a tu azul corporativo (#46608a) */
+  font-family: var(--font-headline); /* 4. Usa la fuente elegante (Manrope) */
+  font-size: 2.2rem; /* Tamaño con buena jerarquía */
+  font-weight: 800; /* Letra extra gruesa para que destaque */
+  margin: 0; /* Limpia márgenes basura del navegador */
+}
+.card-header {
+    /* 1. Esto empuja todo el formulario (el input de Teléfono) hacia abajo */
+    margin-bottom: 2rem; 
+}
+/* ... (Aquí puedes agregar los estilos de los botones sociales del código original) */

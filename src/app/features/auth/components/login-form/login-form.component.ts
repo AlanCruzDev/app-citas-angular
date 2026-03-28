@@ -13,7 +13,7 @@ import { LoginRequest } from '../../models/LoginRequest'; //Importe el login.req
 })
 export class LoginFormComponent {
 
-  //Se mandan a llamar las variables desde el LoginRequest, ya no necesito especificar que tipo variables son.
+  //Se mandan a llamar las variables desde el LoginRequest, ya no necesito especificar que tipo variables son, ya lo haces desde el request.
   @Output() loginSubmit = new EventEmitter<LoginRequest>(); 
   
   loginForm: FormGroup;
@@ -37,6 +37,7 @@ export class LoginFormComponent {
 
 
 
+  //metodo para que el cuando presiones el boton mande la informacion al  padre
   onSubmit(): void {
     if (this.loginForm.invalid) {
       return;
