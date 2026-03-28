@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginRequest } from '../../models/LoginRequest'; //se importo el loginrequest
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,8 @@ import { LoginRequest } from '../../models/LoginRequest'; //se importo el loginr
 export class LoginPageComponent {
   numPhone: string = '';
   password: string = '';
+
+  constructor(private auth: AuthService) {}
 
   //se cambio el parametro y ya recibe el loginrequest
   setInfoLogin(e: LoginRequest) {
