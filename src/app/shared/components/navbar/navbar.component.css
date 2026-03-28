@@ -1,0 +1,63 @@
+  .logo-container {
+    position: relative;
+    width: 250px;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+  }
+
+
+  .logo-container img {
+    max-width: 80%;
+    max-height: 100%;
+  }
+
+
+  .navbar-brand-tercera-container {
+    display: flex;
+    gap: 20px;
+  }
+
+  .navbar-brand-tercera {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .navbar-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  .navbar-list li {
+    margin-bottom: 5px;
+    color: white;
+  }
+
+  .navbar-list li p {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    color: white;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .logo-container.hidden {
+      transform: translateX(-250px);
+    }
+
+    .sidebar-toggler-hidden {
+      transition: transform 0.2s ease;
+      transform: translateX(-240px);
+    }
+  }
+
+
+
