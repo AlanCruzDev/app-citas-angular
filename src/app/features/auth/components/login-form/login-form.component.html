@@ -17,9 +17,10 @@
         <input class="input-field" 
         formControlName="numPhone" 
         id="numPhone" 
-        placeholder="5512345678" 
-        type="text" 
-        maxlength="10"/>
+        placeholder="ej:5512345678" 
+        type="tel" 
+        maxlength="10"
+        />
       </div>
       <div class="error-text" *ngIf="loginForm.get('numPhone')?.invalid && loginForm.get('numPhone')?.touched">
         El teléfono debe tener 10 dígitos.
