@@ -21,9 +21,6 @@ body {
     background-color: var(--surface);
     font-family: var(--font-body);
     color: var(--on-surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .bg-blobs { position: fixed; inset: 0; z-index: -1; pointer-events: none; }

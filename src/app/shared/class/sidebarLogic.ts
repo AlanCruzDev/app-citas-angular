@@ -14,13 +14,13 @@ export class SidebarLogic {
       this.menuItems = [
         {
           title: 'Citas',
-          icon: '../../../../assets/lateral/informes1.png',
+          icon: '../../../assets/img/cita.png',
           expanded: false,
           submenu: [{ name: 'Consultar Citas', url: '' }],
         },
         {
           title: 'Catalogo',
-          icon: '../../../../assets/lateral/informes1.png',
+          icon: '../../../assets/img/catalogo.png',
           expanded: false,
           submenu: [
             { name: 'Lista de Servicios', url: '' },
@@ -29,7 +29,7 @@ export class SidebarLogic {
         },
         {
           title: 'Configuracion',
-          icon: '../../../../assets/lateral/informes1.png',
+          icon: '../../../assets/img/configuraciones.png',
           expanded: false,
           submenu: [{ name: 'Mi Perfil', url: '' }],
         },
