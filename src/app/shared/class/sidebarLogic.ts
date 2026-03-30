@@ -16,22 +16,22 @@ export class SidebarLogic {
           title: 'Citas',
           icon: '../../../assets/img/cita.png',
           expanded: false,
-          submenu: [{ name: 'Consultar Citas', url: '' }],
+          submenu: [{ name: 'Consultar Citas', url: 'citas/lista' }],
         },
         {
           title: 'Catalogo',
           icon: '../../../assets/img/catalogo.png',
           expanded: false,
           submenu: [
-            { name: 'Lista de Servicios', url: '' },
-            { name: 'Agregar Servicio', url: '' },
+            { name: 'Lista de Servicios', url: 'catalogo/servicios' },
+            { name: 'Agregar Servicio', url: 'catalogo/agregar/servicios' },
           ],
         },
         {
           title: 'Configuracion',
           icon: '../../../assets/img/configuraciones.png',
           expanded: false,
-          submenu: [{ name: 'Mi Perfil', url: '' }],
+          submenu: [{ name: 'Mi Perfil', url: 'configuracion/perfil' }],
         },
       ];
       return this.menuItems;

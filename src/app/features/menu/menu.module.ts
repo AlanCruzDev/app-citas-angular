@@ -3,9 +3,13 @@ import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MenuRoutingModule } from './menu-routing.module';
+import { ServiciosComponent } from './pages/catalogos/servicios/servicios.component';
+import { AddServiciosComponent } from './pages/catalogos/add-servicios/add-servicios.component';
+import { ConsultaCitasComponent } from './pages/citas/consulta-citas/consulta-citas.component';
+import { PerfilComponent } from './pages/configuracion/perfil/perfil.component';
 
 @NgModule({
-  declarations: [LayoutComponent],
+  declarations: [LayoutComponent, ServiciosComponent, AddServiciosComponent, ConsultaCitasComponent, PerfilComponent],
   imports: [CommonModule, SharedModule, MenuRoutingModule],
 })
 export class MenuModule {}

@@ -6,7 +6,7 @@ import {
   transition,
   state,
 } from '@angular/animations';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SidebarLogic } from '../../class/sidebarLogic';
 import { ItemMenu } from '../models/ItemMenu';
 
@@ -26,9 +26,14 @@ export class SidebarComponent {
   public sidebarlogic: SidebarLogic = new SidebarLogic();
   public menuItems: ItemMenu[] = [];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
 
-  public navegation(url: string, data: any) {}
+  public navegation(url: string, data: any) {
+    this.router.navigate([url], { relativeTo: this.route });
+  }
 
   public toggleDropdown() {
     this.sidebarlogic.toggleDropdown();
