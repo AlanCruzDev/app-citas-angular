@@ -7,9 +7,10 @@ import { ServiciosComponent } from './pages/catalogos/servicios/servicios.compon
 import { AddServiciosComponent } from './pages/catalogos/add-servicios/add-servicios.component';
 import { ConsultaCitasComponent } from './pages/citas/consulta-citas/consulta-citas.component';
 import { PerfilComponent } from './pages/configuracion/perfil/perfil.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LayoutComponent, ServiciosComponent, AddServiciosComponent, ConsultaCitasComponent, PerfilComponent],
-  imports: [CommonModule, SharedModule, MenuRoutingModule],
+  imports: [CommonModule, SharedModule, MenuRoutingModule, ReactiveFormsModule],
 })
 export class MenuModule {}

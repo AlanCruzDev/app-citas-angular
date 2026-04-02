@@ -1,1 +1,55 @@
 <p>add-servicios works!</p>
+
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="guardarServicio()">
+        <div class="user-section">
+            <label>Usuario</label>
+            <input type="text" formControlName="usuario" placeholder="Nombre de usuario">
+        </div>
+        
+        <div class="agregarServicio">
+            <button class="btn-primary" type="button" (click)="agregarServicio()">
+                + Agregar Servicio
+            </button>
+        </div>
+
+        <div class="servicio-container" formArrayName="servicio">
+            <div class="servicio-row" 
+                 *ngFor="let control of servicioArray.controls; let i = index" 
+                 [formGroupName]="i">
+              
+                <div class="form-group">
+                    <label>Servicio</label>
+                    <input type="text" formControlName="nomServicio" placeholder="Servicio">
+                </div>
+
+                <div class="form-group">
+                    <label>Información servicio</label>
+                    <input type="text" formControlName="infoServicio" placeholder="Descripción">
+                </div>
+
+                <div class="form-group short">
+                    <label>Precio</label>
+                    <input type="number" formControlName="precio" placeholder="0.00" min="0">
+                </div>
+
+                <div class="form-group short">
+                    <label>Duración min</label>
+                    <input type="number" formControlName="duracionMin" placeholder="Min" min="1">
+                </div>
+            
+                <div>
+                    <button class="btn-danger" type="button" (click)="eliminarServicio(i)">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="guardarServicio">
+            <button type="submit" class="btn-primary" [disabled]="form.invalid">
+                Guardar servicio
+            </button>
+        </div>
+    </form>
+</div>
