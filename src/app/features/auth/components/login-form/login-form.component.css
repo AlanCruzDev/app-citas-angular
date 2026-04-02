@@ -54,10 +54,9 @@
 }
 
 .error-text {
-    color: #ef4444; /* Un rojo moderno y legible */
-    font-size: 0.75rem; /* El equivalente a 'small' */
-    margin-top: 0.25rem; /* El equivalente a 'mt-1' */
-    margin-left: 0.5rem; /* Para que quede alineado con el texto del input */
+    color: #DC2626; /* Rojo */
+    font-size: 11px;
+    margin-top: 6px;
     font-weight: 500;
 }
 

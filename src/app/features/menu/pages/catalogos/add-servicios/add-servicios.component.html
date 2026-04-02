@@ -1,55 +1,102 @@
-<p>add-servicios works!</p>
-
 <div class="container">
+    <h1 class="page-title">Servicios</h1>
+    <p class="subtitle">Gestiona el catálogo de experiencias y servicios para tus clientes.</p>
+
     <form [formGroup]="form" (ngSubmit)="guardarServicio()">
-        <div class="user-section">
-            <label>Usuario</label>
+
+        <div class="form-group user-section">
+            <label>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#3D5A80"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                USUARIO
+            </label>
             <input type="text" formControlName="usuario" placeholder="Nombre de usuario">
         </div>
-        
-        <div class="agregarServicio">
-            <button class="btn-primary" type="button" (click)="agregarServicio()">
-                + Agregar Servicio
+
+        <div class="header-servicios">
+            <h3>Lista de Servicios</h3>
+            <button class="btn-link" 
+            type="button" 
+            (click)="agregarServicio()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#3D5A80"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                Agregar Servicio
             </button>
         </div>
 
         <div class="servicio-container" formArrayName="servicio">
-            <div class="servicio-row" 
-                 *ngFor="let control of servicioArray.controls; let i = index" 
-                 [formGroupName]="i">
-              
-                <div class="form-group">
-                    <label>Servicio</label>
-                    <input type="text" formControlName="nomServicio" placeholder="Servicio">
-                </div>
-
-                <div class="form-group">
-                    <label>Información servicio</label>
-                    <input type="text" formControlName="infoServicio" placeholder="Descripción">
-                </div>
-
-                <div class="form-group short">
-                    <label>Precio</label>
-                    <input type="number" formControlName="precio" placeholder="0.00" min="0">
-                </div>
-
-                <div class="form-group short">
-                    <label>Duración min</label>
-                    <input type="number" formControlName="duracionMin" placeholder="Min" min="1">
-                </div>
             
-                <div>
-                    <button class="btn-danger" type="button" (click)="eliminarServicio(i)">
-                        Eliminar
+            <div class="card-servicio" *ngFor="let control of servicioArray.controls; let index = index" [formGroupName]="index">
+
+                <div class="card-header">
+                    <span class="badge">SERVICIO 0{{index + 1}}</span>
+                    <button class="btn-icon" 
+                    type="button" 
+                    (click)="eliminarServicio(index)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C87A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                     </button>
                 </div>
+
+                <div class="form-group">
+                    <label>NOMBRE DEL SERVICIO</label>
+                    <input type="text" 
+                    formControlName="nomServicio" 
+                    placeholder="Ej. Redacción Creativa">
+                    
+                    <div class="error-text" *ngIf="control.get('nomServicio')?.invalid && control.get('nomServicio')?.touched">
+                        Necesitas un nombre para el servicio.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>INFORMACIÓN DEL SERVICIO</label>
+                    <input type="text" 
+                    formControlName="infoServicio" 
+                    placeholder="Describe brevemente el servicio...">
+                    
+                    <div class="error-text" *ngIf="control.get('infoServicio')?.invalid && control.get('infoServicio')?.touched">
+                        Necesitas una descripción del servicio.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group short input-with-prefix">
+                        <label>PRECIO (MX)</label>
+                        <div class="input-wrapper">
+                            <span class="prefix">$</span>
+                            <input type="number" 
+                            formControlName="precio" 
+                            placeholder="0.00" 
+                            min="0"> 
+                        </div>
+                        
+                        <div class="error-text" *ngIf="control.get('precio')?.invalid && control.get('precio')?.touched">
+                            Necesitas ingresar el precio.
+                        </div>
+                    </div>
+
+                    <div class="form-group short input-with-suffix">
+                        <label>DURACIÓN (MIN)</label>
+                        <div class="input-wrapper">
+                            <input type="number" 
+                            formControlName="duracionMin"  
+                            min="1" placeholder="60"
+                            (input)="soloNumeros($event)">
+                            <span class="suffix">MIN</span>
+                        </div>
+
+                        <div class="error-text" *ngIf="control.get('duracionMin')?.invalid && control.get('duracionMin')?.touched">
+                            Necesitas ingresar la duración.
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            </div>
+
+        <div class="actions-container">
+            <button class="btn-main" 
+            type="submit"
+            [disabled]="form.invalid">Guardar servicio</button>
         </div>
-        
-        <div class="guardarServicio">
-            <button type="submit" class="btn-primary" [disabled]="form.invalid">
-                Guardar servicio
-            </button>
-        </div>
+
     </form>
 </div>
