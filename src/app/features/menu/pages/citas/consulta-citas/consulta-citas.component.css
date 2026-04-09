@@ -1,0 +1,269 @@
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dim) 100%
+  );
+  color: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: scale(1.02);
+}
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%; /* En móvil ocupa todo el ancho */
+  padding: 24px;
+  margin: 0 auto;
+  background-color: transparent; /* Se funde con el fondo gris/azulado */
+  padding-bottom: 80px; /* Margen inferior para que no se corte el botón de guardar */
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 700px; /* En escritorio se hace más ancho */
+    margin: 40px auto 60px auto; /* Lo centra y le da espacio arriba/abajo */
+    padding: 40px; /* Más espacio interno para que "respire" */
+    background-color: #ffffff; /* Se convierte en una tarjeta blanca */
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04); /* Sombra elegante */
+    height: auto;
+    overflow: visible;
+  }
+}
+/*******************************************/
+
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.servicio-card {
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.servicio-card h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.servicio-card p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.servicio-card:hover {
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.servicio-card.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+
+/****************************/
+
+/* base */
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* cancelar */
+.btn-cancel {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-cancel:hover {
+  background: #e5e7eb;
+}
+
+/* guardar */
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* click effect */
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* responsive (PWA feeling) */
+@media (max-width: 500px) {
+  [modal-footer] {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/*********************************************************/
+
+.container {
+  padding: 16px;
+  background: #f4f6fb;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* HEADER */
+.header small {
+  color: #8a8fa3;
+}
+
+.header h1 {
+  margin: 5px 0 15px;
+}
+
+/* BOTÓN */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4e6cff, #3f5efb);
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* CARD BASE */
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+/* HEADER CARD */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BADGE */
+.badge {
+  background: #e9edf7;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* HORA */
+.time {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* TEXTO */
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  color: #8a8fa3;
+  font-size: 14px;
+}
+
+/* FOOTER */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* AVATAR */
+.avatar {
+  width: 32px;
+  height: 32px;
+  background: #dfe6f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* MENU */
+.menu {
+  font-size: 18px;
+  color: #8a8fa3;
+}
+
+/* 🔵 PROXIMA (igual al azul de la imagen) */
+.card.proxima {
+  background: linear-gradient(135deg, #3f5efb, #2c3e50);
+  color: white;
+}
+
+.card.proxima .badge {
+  background: rgba(255,255,255,0.2);
+}
+
+.card.proxima p {
+  color: #dcdcdc;
+}
+
+.card.proxima .time {
+  color: white;
+}
+
+/* PRIORIDAD */
+.priority {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+/* ⚫ PASADA */
+.card.pasada {
+  opacity: 0.4;
+}
+
+/* NORMAL */
+.card.normal {
+}

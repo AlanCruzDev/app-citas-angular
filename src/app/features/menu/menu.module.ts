@@ -8,9 +8,24 @@ import { AddServiciosComponent } from './pages/catalogos/add-servicios/add-servi
 import { ConsultaCitasComponent } from './pages/citas/consulta-citas/consulta-citas.component';
 import { PerfilComponent } from './pages/configuracion/perfil/perfil.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './componentes/modal/modal.component';
 
 @NgModule({
-  declarations: [LayoutComponent, ServiciosComponent, AddServiciosComponent, ConsultaCitasComponent, PerfilComponent],
-  imports: [CommonModule, SharedModule, MenuRoutingModule, ReactiveFormsModule],
+  declarations: [
+    LayoutComponent,
+    ServiciosComponent,
+    AddServiciosComponent,
+    ConsultaCitasComponent,
+    PerfilComponent,
+    ModalComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    MenuRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
 export class MenuModule {}

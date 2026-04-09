@@ -12,6 +12,11 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'citas/lista',
+        pathMatch: 'full',
+      },
+      {
         path: 'catalogo/servicios',
         component: ServiciosComponent,
       },
@@ -29,7 +34,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

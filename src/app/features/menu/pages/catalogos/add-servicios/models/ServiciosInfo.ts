@@ -1,8 +1,6 @@
 export interface ServiciosInfoModule {
-  
-  nomServicio: string; 
+  nomServicio: string;
   infoServicio: string;
   precio: number;
   duracionMin: number;
-  
 }

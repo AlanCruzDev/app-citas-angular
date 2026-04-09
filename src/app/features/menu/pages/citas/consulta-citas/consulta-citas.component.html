@@ -1,1 +1,79 @@
-<p>consulta-citas works!</p>
+<div class="container">
+  <h1 style="text-align: center">Citas Pendientes</h1>
+
+  <div style="margin-top: 15px">
+    <button class="submit-btn" (click)="abrirModal()">Cita Rapida</button>
+  </div>
+
+  <!-- LISTA DE CITAS -->
+  <div
+    *ngFor="let cita of citasPendientes"
+    class="card"
+    [ngClass]="getClaseCita(cita)"
+  >
+    <!-- HEADER CARD -->
+    <div class="card-header">
+      <span class="badge">
+        {{ cita.servicio.nomServicio || "" }}
+      </span>
+
+      <span class="time">
+        {{ formatearHora(cita.horaInicio) }}
+      </span>
+    </div>
+
+    <!-- CLIENTE -->
+    <h3>
+      {{ cita.cliente?.nombre || "Cliente" }}
+    </h3>
+
+    <!-- SERVICIO -->
+    <p>
+      {{ cita.servicio.infoServicio || "Descripción del servicio" }}
+    </p>
+
+    <!-- FOOTER -->
+    <div class="card-footer">
+      <!-- AVATAR -->
+      <div class="avatar">
+        {{ cita.cliente?.nombre?.charAt(0) || "C" }}
+      </div>
+
+      <!-- MENU -->
+      <div class="menu">⋮</div>
+    </div>
+
+    <!-- PRIORIDAD -->
+    <div *ngIf="getClaseCita(cita) === 'proxima'" class="priority">
+      ● Próxima a iniciar
+    </div>
+  </div>
+</div>
+
+<app-modal
+  [isOpen]="isModalOpen"
+  title="Nueva cita rápida"
+  (close)="cerrarModal()"
+>
+  <div class="form-group">
+    <label>Servicios:</label>
+
+    <div class="servicios-grid">
+      <div
+        class="servicio-card"
+        *ngFor="let s of serviciosListas"
+        [class.active]="servicioSeleccionado === s.idServicio"
+        (click)="seleccionarServicio(s.idServicio)"
+      >
+        <h4>{{ s.nomServicio }}</h4>
+        <p>{{ s.precio | currency }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div modal-footer>
+    <button class="btn btn-cancel" (click)="cerrarModal()">Cancelar</button>
+
+    <button class="btn btn-primary" (click)="guardarCita()">Guardar</button>
+  </div>
+</app-modal>

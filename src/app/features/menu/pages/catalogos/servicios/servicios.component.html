@@ -1,1 +1,57 @@
-<p>servicios works!</p>
+<div class="container">
+  <div class="servicio-container">
+    <div
+      class="card-servicio"
+      *ngFor="let item of listaServicios; let index = index"
+    >
+      <div class="card-header">
+        <span class="badge">SERVICIO 0{{ index + 1 }}</span>
+
+        <!-- BOTÓN EDITAR -->
+        <button
+          *ngIf="editIndex !== index"
+          (click)="editar(index)"
+          type="button"
+        >
+          Editar
+        </button>
+
+        <!-- BOTÓN GUARDAR -->
+        <button *ngIf="editIndex === index" (click)="guardar()" type="button">
+          Guardar
+        </button>
+      </div>
+
+      <!-- 👇 MODO VISTA -->
+      <div *ngIf="editIndex !== index">
+        <p><strong>Nombre:</strong> {{ item.nomServicio }}</p>
+        <p><strong>Info:</strong> {{ item.infoServicio }}</p>
+        <p><strong>Precio:</strong> ${{ item.precio }}</p>
+        <p><strong>Duración:</strong> {{ item.duracionMin }} min</p>
+      </div>
+
+      <!-- 👇 MODO EDICIÓN -->
+      <div *ngIf="editIndex === index">
+        <div class="form-group">
+          <label>NOMBRE</label>
+          <input type="text" [(ngModel)]="item.nomServicio" />
+        </div>
+
+        <div class="form-group">
+          <label>INFO</label>
+          <input type="text" [(ngModel)]="item.infoServicio" />
+        </div>
+
+        <div class="form-group">
+          <label>PRECIO</label>
+          <input type="number" [(ngModel)]="item.precio" />
+        </div>
+
+        <div class="form-group">
+          <label>DURACIÓN</label>
+          <input type="number" [(ngModel)]="item.duracionMin" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
