@@ -21,6 +21,9 @@ export class CitasService {
     return this.http.post(
       `${environmentDeveloper.endpoint}/citas/crear/rapido`,
       input,
+      {
+        responseType: 'text',
+      },
     );
   }
 }

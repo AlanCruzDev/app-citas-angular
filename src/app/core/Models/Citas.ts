@@ -7,7 +7,7 @@ export class Citas {
   public fecha: string = '';
   public horaInicio: string = '';
   public horaFin: string = '';
-  public estado?: EstadoCita;
+  public estado!: EstadoCita;
   public cliente?: Cliente;
   public servicio!: Servicios;
 

@@ -3,6 +3,7 @@ import { CitasService } from '../../../services/citas.service';
 import { Citas } from 'src/app/core/Models/Citas';
 import { ServiosService } from '../../../services/servios.service';
 import { Servicios } from '../../catalogos/models/Servicios';
+import { EstadoCita } from 'src/app/core/Models/EstadoCita';
 
 @Component({
   selector: 'app-consulta-citas',
@@ -22,31 +23,56 @@ export class ConsultaCitasComponent {
     this.obtenerCitasPendientes();
   }
 
+  ngOnInit(): void {
+    setInterval(() => {
+      this.actualizarEstados();
+    }, 30000);
+  }
+
+  public actualizarEstados() {
+    const ahora = new Date();
+
+    this.citasPendientes.forEach((cita) => {
+      const inicio = this.getFechaHora(cita);
+      const fin = new Date(`${cita.fecha}T${cita.horaFin}`);
+
+      if (ahora > fin && cita.estado !== EstadoCita.COMPLETADA) {
+        cita.estado = EstadoCita.EN_ESPERA;
+        return;
+      }
+
+      if (ahora >= inicio && ahora <= fin) {
+        cita.estado = EstadoCita.EN_CURSO;
+        return;
+      }
+
+      if (ahora < inicio) {
+        cita.estado = EstadoCita.PENDIENTE;
+      }
+    });
+
+    const pendientes = this.citasPendientes
+      .filter((c) => c.estado === EstadoCita.PENDIENTE)
+      .sort((a, b) => {
+        const fechaA = this.getFechaHora(a).getTime();
+        const fechaB = this.getFechaHora(b).getTime();
+        return fechaA - fechaB;
+      });
+
+    if (pendientes.length > 0) {
+      pendientes[0].estado = EstadoCita.PROXIMA;
+    }
+
+    // refrescar UI
+    this.citasPendientes = [...this.citasPendientes];
+  }
+
   public obtenerCitasPendientes() {
     this.citasServices.obtenerCitasPendientes(1, 2).subscribe({
       next: (value: any) => {
         this.citasPendientes = value;
-
-        console.log(this.citasPendientes);
       },
     });
-  }
-
-  public getClaseCita(cita: Citas): string {
-    const ahora = new Date();
-    const inicio = this.getFechaHora(cita);
-
-    const diffMin = (inicio.getTime() - ahora.getTime()) / (1000 * 60);
-
-    if (diffMin <= 0) {
-      return 'pasada';
-    }
-
-    if (diffMin <= 30) {
-      return 'proxima'; // 🔥 como la azul
-    }
-
-    return 'normal';
   }
 
   public getFechaHora(cita: Citas): Date {
@@ -85,16 +111,17 @@ export class ConsultaCitasComponent {
     this.citasServices.crearCitasRapidas(citaBody).subscribe({
       next: (value: any) => {
         alert(value);
+        this.cerrarModal();
         this.obtenerCitasPendientes();
       },
     });
   }
 
-  abrirModal() {
+  public abrirModal() {
     this.obtenerSerivios();
   }
 
-  cerrarModal() {
+  public cerrarModal() {
     this.isModalOpen = false;
   }
 }

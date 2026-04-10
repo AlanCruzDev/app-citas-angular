@@ -5,13 +5,12 @@
     <button class="submit-btn" (click)="abrirModal()">Cita Rapida</button>
   </div>
 
-  <!-- LISTA DE CITAS -->
   <div
+    style="margin-top: 15px"
     *ngFor="let cita of citasPendientes"
     class="card"
-    [ngClass]="getClaseCita(cita)"
+    [ngClass]="cita.estado.toLowerCase()"
   >
-    <!-- HEADER CARD -->
     <div class="card-header">
       <span class="badge">
         {{ cita.servicio.nomServicio || "" }}
@@ -22,30 +21,29 @@
       </span>
     </div>
 
-    <!-- CLIENTE -->
     <h3>
       {{ cita.cliente?.nombre || "Cliente" }}
     </h3>
 
-    <!-- SERVICIO -->
     <p>
       {{ cita.servicio.infoServicio || "Descripción del servicio" }}
     </p>
 
-    <!-- FOOTER -->
     <div class="card-footer">
       <!-- AVATAR -->
       <div class="avatar">
         {{ cita.cliente?.nombre?.charAt(0) || "C" }}
       </div>
 
-      <!-- MENU -->
       <div class="menu">⋮</div>
     </div>
 
-    <!-- PRIORIDAD -->
-    <div *ngIf="getClaseCita(cita) === 'proxima'" class="priority">
-      ● Próxima a iniciar
+    <div *ngIf="cita.estado === 'EN_CURSO'" class="status blue">● En curso</div>
+
+    <div *ngIf="cita.estado === 'PROXIMA'" class="priority">● Proxima Cita</div>
+
+    <div *ngIf="cita.estado === 'EN_ESPERA'" class="status yellow">
+      ● Esperando confirmación
     </div>
   </div>
 </div>
@@ -72,8 +70,6 @@
   </div>
 
   <div modal-footer>
-    <button class="btn btn-cancel" (click)="cerrarModal()">Cancelar</button>
-
     <button class="btn btn-primary" (click)="guardarCita()">Guardar</button>
   </div>
 </app-modal>

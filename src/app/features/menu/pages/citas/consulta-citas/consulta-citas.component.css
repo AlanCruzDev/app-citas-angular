@@ -1,3 +1,4 @@
+
 .submit-btn {
   width: 100%;
   background: linear-gradient(
@@ -217,7 +218,6 @@
   margin-top: 10px;
 }
 
-/* AVATAR */
 .avatar {
   width: 32px;
   height: 32px;
@@ -229,13 +229,11 @@
   font-weight: bold;
 }
 
-/* MENU */
 .menu {
   font-size: 18px;
   color: #8a8fa3;
 }
 
-/* 🔵 PROXIMA (igual al azul de la imagen) */
 .card.proxima {
   background: linear-gradient(135deg, #3f5efb, #2c3e50);
   color: white;
@@ -259,11 +257,42 @@
   font-size: 12px;
 }
 
-/* ⚫ PASADA */
 .card.pasada {
   opacity: 0.4;
 }
 
-/* NORMAL */
-.card.normal {
+
+.card.en_curso {
+  background: linear-gradient(135deg, #3f5efb, #2c3e50);
+  color: white;
 }
+
+.card.en_espera {
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  color: #333;
+}
+
+.card.completada {
+  opacity: 0.4;
+}
+
+.card.pendiente {
+  background: white;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.blue {
+  color: #00d4ff;
+}
+
+.status.yellow {
+  color: #ff9800;
+}
+
+
+
