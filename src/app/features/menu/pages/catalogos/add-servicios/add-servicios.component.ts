@@ -43,7 +43,7 @@ export class AddServiciosComponent {
     return this.formBuilder.group({
       nomServicio: this.formBuilder.control('', [Validators.required]),
       infoServicio: this.formBuilder.control('', [Validators.required]),
-      // Aquí bloqueamos los negativos a nivel lógico
+      // Aquí bloqueamos los negativos 
       precio: this.formBuilder.control(0, [
         Validators.required,
         Validators.min(0),

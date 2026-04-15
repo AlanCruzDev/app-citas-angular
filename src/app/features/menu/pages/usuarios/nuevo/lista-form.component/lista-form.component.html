@@ -1,0 +1,68 @@
+<div class="dashboard-container">
+    <header class="header">
+        <h1>Usuarios</h1>
+        <p>Administra los roles y accesos de tu equipo.</p>
+    </header>
+
+    <button class="btn-agregar" (click)="abrirModal()">
+        <span class="icon">+</span> AGREGAR USUARIO
+    </button>
+    <div class="card-usuario" *ngFor="let usuario of listaUsuario">
+        <div class="card-top">
+            <div class="avatar-circle">
+                {{ usuario.nombre.charAt(0).toUpperCase() }}
+            </div>
+            <div class="user-titles">
+                <h3>{{ usuario.nombre.toUpperCase() }}</h3>
+                <span class="role-badge">{{ usuario.rol }}</span>
+            </div>
+
+            <div class="card-actions">
+                <button class="btn-icon edit" (click)="editarUsuario(usuario)">✎</button>
+                <button class="btn-icon delete" (click)="eliminarUsuario(usuario)">🗑</button>
+            </div>
+        </div>
+
+        <div class="card-content">
+            <div class="info-block">
+                <label>Teléfono</label>
+                <p>{{ usuario.telefono }}</p>
+            </div>
+
+            <div class="info-block">
+                <label>Email</label>
+                <p>{{ usuario.email }}</p>
+            </div>
+
+            <div class="info-block">
+                <label>Password</label>
+                <p>••••••••</p>
+            </div>
+
+            <div class="horarios-flex">
+                <div class="info-block">
+                    <label>Hora Apertura</label>
+                    <p>{{ usuario.hora_inicio }}</p>
+                </div>
+                <div class="info-block">
+                    <label>Hora Cierre</label>
+                    <p>{{ usuario.hora_cierre }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal" *ngIf="modal">
+        <div class="modal-contenido">
+            <h3>{{ editar ? 'Editar usuario' : 'Nuevo usuario'}}</h3>
+            <p>{{editar ? 'Modifica los datos del usuario':'Agrega los datos del nuevo usuario'}}</p>
+            <span class="cerrar" (click)="cerrarModal()">×</span>
+
+            <app-usuario-form (agregarUsuario)="recibirUsuario($event)" [editarUsuario]="listaUsuarioCopia" >
+            </app-usuario-form>
+
+            <button class="btn-cancel" (click)="cerrarModal()">Cancel</button>
+        </div>
+    </div>
+</div>

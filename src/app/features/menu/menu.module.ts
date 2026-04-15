@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './componentes/modal/modal.component';
 
+import { UsuariosModule } from './pages/usuarios/nuevo/usuarios.module';
+
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -26,6 +28,7 @@ import { ModalComponent } from './componentes/modal/modal.component';
     MenuRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    UsuariosModule
   ],
 })
 export class MenuModule {}

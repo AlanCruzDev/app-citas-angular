@@ -5,6 +5,7 @@ import { ServiciosComponent } from './pages/catalogos/servicios/servicios.compon
 import { AddServiciosComponent } from './pages/catalogos/add-servicios/add-servicios.component';
 import { PerfilComponent } from './pages/configuracion/perfil/perfil.component';
 import { ConsultaCitasComponent } from './pages/citas/consulta-citas/consulta-citas.component';
+import { ListaUsuariosComponent } from './pages/usuarios/nuevo/lista-form.component/lista-form.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'citas/lista',
         component: ConsultaCitasComponent,
+      },
+      {
+        path: 'usuarios/nuevo',
+        component: ListaUsuariosComponent,
       },
       {
         path: 'configuracion/perfil',

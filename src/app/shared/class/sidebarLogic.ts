@@ -1,3 +1,4 @@
+
 import { ItemMenu } from '../components/models/ItemMenu';
 
 export class SidebarLogic {
@@ -25,6 +26,14 @@ export class SidebarLogic {
           submenu: [
             { name: 'Lista de Servicios', url: 'catalogo/servicios' },
             { name: 'Agregar Servicio', url: 'catalogo/agregar/servicios' },
+          ],
+        },
+        {
+          title: 'Usuarios',
+          icon: '',
+          expanded: false,
+          submenu: [
+            { name: 'Lista de usuarios y agregar usuarios', url: 'usuarios/nuevo' }
           ],
         },
         {

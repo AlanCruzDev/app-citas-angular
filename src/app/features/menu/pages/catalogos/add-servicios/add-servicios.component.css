@@ -1,23 +1,22 @@
-
-
 :host {
     display: block;
-    min-height: 100vh; /* Asegura que el componente abarque toda la altura y no se corte */
+    min-height: 100vh;
+    /* Asegura que el componente abarque toda la altura y no se corte */
     background-color: transparent;
 
     height: 100%;
 }
 
-
-
-
 .container {
     width: 100%;
-    max-width: 100%; /* En móvil ocupa todo el ancho */
+    max-width: 100%;
+    /* En móvil ocupa todo el ancho */
     padding: 24px;
     margin: 0 auto;
-    background-color: transparent; /* Se funde con el fondo gris/azulado */
-    padding-bottom: 80px; /* Margen inferior para que no se corte el botón de guardar */
+    background-color: transparent;
+    /* Se funde con el fondo gris/azulado */
+    padding-bottom: 80px;
+    /* Margen inferior para que no se corte el botón de guardar */
 }
 
 /* =========================================
@@ -25,12 +24,17 @@
    ========================================= */
 @media (min-width: 768px) {
     .container {
-        max-width: 700px; /* En escritorio se hace más ancho */
-        margin: 40px auto 60px auto;/* Lo centra y le da espacio arriba/abajo */
-        padding: 40px; /* Más espacio interno para que "respire" */
-        background-color: #FFFFFF; /* Se convierte en una tarjeta blanca */
+        max-width: 700px;
+        /* En escritorio se hace más ancho */
+        margin: 40px auto 60px auto;
+        /* Lo centra y le da espacio arriba/abajo */
+        padding: 40px;
+        /* Más espacio interno para que "respire" */
+        background-color: #FFFFFF;
+        /* Se convierte en una tarjeta blanca */
         border-radius: 16px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04); /* Sombra elegante */
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        /* Sombra elegante */
         height: auto;
         overflow: visible;
     }

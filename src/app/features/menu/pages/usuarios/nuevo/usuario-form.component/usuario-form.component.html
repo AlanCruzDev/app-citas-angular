@@ -1,0 +1,64 @@
+<div class="usuario-container">
+    <form [formGroup]="form" (ngSubmit)="crearUsuario()" class="formulario-grid">
+
+        <div class="form-group full-width">
+            <label for="nombre">Nombre</label>
+            <input type="text" formControlName="nombre" placeholder="Ingresa tu nombre">
+            <span class="error-text" *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+                El nombre es obligatorio
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="text" formControlName="telefono" placeholder="ej. 5512345678" (input)="soloNumeros($event)">
+            <span class="error-text" *ngIf="form.get('telefono')?.invalid && form.get('telefono')?.touched">
+                Teléfono requerido
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="rol">Rol</label>
+            <input type="text" formControlName="rol" placeholder="Rol del usuario">
+            <span class="error-text" *ngIf="form.get('rol')?.invalid && form.get('rol')?.touched">
+                Asigna un rol
+            </span>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="email">Email</label>
+            <input type="email" formControlName="email" placeholder="Ejemplo@email.com">
+            <span class="error-text" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+                Ingresa un correo válido
+            </span>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="password">Contraseña</label>
+            <input type="password" formControlName="password" placeholder="••••••••">
+            <span class="error-text" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+                Mínimo 8 caracteres
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="hora_inicio">Apertura</label>
+            <input type="text" formControlName="hora_inicio" placeholder="ej.01:00" (input)="formatoHorarios($event)"
+                (blur)="corregirHora($event, 'hora_inicio')"
+                [class.input-error]="form.get('hora_inicio')?.invalid && form.get('hora_inicio')?.touched">
+        </div>
+
+        <div class="form-group">
+            <label for="hora_cierre">Cierre</label>
+            <input type="text" formControlName="hora_cierre" placeholder="ej.23:00" (input)="formatoHorarios($event)"
+                [class.input-error]="form.get('hora_cierre')?.invalid && form.get('hora_cierre')?.touched"
+                (blur)="corregirHora($event, 'hora_cierre')">
+            <span class="error-text" *ngIf="form.hasError('horarioInvalido') && form.get('hora_cierre')?.touched ">
+                La hora de cierre debe ser posterior a la de apertura</span>
+        </div>
+
+        <div class="action-container full-width">
+            <button type="submit" class="btn-main" [disabled]="form.invalid">Guardar usuario</button>
+        </div>
+    </form>
+</div>
